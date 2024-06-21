@@ -1,0 +1,88 @@
+:root{
+    --color-212529 : #212529;
+    --color-ffd333 : #ffd333;
+    --color-47ad24 : #47ad24;
+    --color-e52e2e : #e52e2e;
+    --color-828599 : #828599;
+    --color-ed464d : #ed464d;
+    --color-c3d4da : #c3d4da;
+ 
+
+}
+
+.error{
+    color: red;
+    font-size: medium;
+    font-weight: 400 ;
+    margin-bottom: 20px;
+}
+.green{
+    color: var(--color-47ad24);
+}
+
+.red{
+    color: var(--color-e52e2e);
+}
+.form-control{
+    box-shadow: none !important;
+    border: var(--color-c3d4da) !important;
+}
+
+.title{
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+}
+.sub-title{
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+}
+
+.tourAddImage {
+    height: 200px !important;
+    width: 200px !important;
+    margin-bottom: 20px !important;
+}
+
+.orders-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .order-item {
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  
+  .order-item div {
+    margin-bottom: 8px;
+  }
+
+  .order-table {
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  .order-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .order-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .order-table .left {
+    width: 30%;
+    font-weight: bold;
+  }
+  
+  .order-table .right {
+    width: 70%;
+  }
