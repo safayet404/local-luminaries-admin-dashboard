@@ -79,7 +79,9 @@ const Orders = () => {
   return (
     <div>
         <h3>Orders</h3>
-        <Table columns={columns} dataSource={data2}></Table>
+        <Table columns={columns} dataSource={data2}  scroll={{
+                      x: 700,
+                    }}></Table>
     </div>
   )
 }

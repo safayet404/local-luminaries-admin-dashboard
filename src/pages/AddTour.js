@@ -17,6 +17,7 @@ import {
 
 import { imageUpload } from "../utils/imageUpload";
 import { useLocation, useNavigate } from "react-router-dom";
+import ChangeDateFormat from "../components/ChangeDateFormat";
 
 let schema = Yup.object().shape({
   title: Yup.string().required("Title is required"),
@@ -54,15 +55,17 @@ const AddTour = () => {
       dispatch(resetState());
     }
   }, [getTourId]);
+  
 
   const single_tour = useSelector((state) => state.tour.singleTour);
   const { title, description, image, duration, price,date } = single_tour;
-  console.log(single_tour);
+  console.log("from getting tour oage",single_tour.date);
+ 
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
       title: title || "",
-      date : date || "",
+      date : ChangeDateFormat(date)  || "",
       description: description || "",
       price: price || "",
       image: image || img,
@@ -117,15 +120,25 @@ const AddTour = () => {
           <div className="error">
             {formik.touched.title && formik.errors.title}
           </div>
-          <CustomInput
+
+          {date ?  <CustomInput
             className="mt-3"
-            type="date"
+            type="text"
             name="date"
             onChange={formik.handleChange("date")}
             onBlue={formik.handleBlur("date")}
             value={formik.values.date}
             placeholder="Enter the product date"
-          />
+          /> :  <CustomInput
+          className="mt-3"
+          type="date"
+          name="date"
+          onChange={formik.handleChange("date")}
+          onBlue={formik.handleBlur("date")}
+          value={formik.values.date}
+          placeholder="Enter the product date"
+        /> }
+         
 
           <div className="error">
             {formik.touched.date && formik.errors.date}

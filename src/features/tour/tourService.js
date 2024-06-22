@@ -50,11 +50,12 @@ const deleteTour = async (id) => {
 const updateTour = async (tour) => {
 
   try{
-    const response = await axios.put(`${base_url}tour/update-tour/${tour.id}`, {
+    const response = await axios.patch(`${base_url}tour/update-tour/${tour.id}`, {
       title: tour.tourData.title,
       description: tour.tourData.description,
       price: tour.tourData.price,
       image: tour.tourData.image,
+      date : tour.tourData.date,
       duration: tour.tourData.duration,
     });
     if(response.status === 200)

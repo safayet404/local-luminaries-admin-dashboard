@@ -6,11 +6,16 @@ import { BiEdit } from "react-icons/bi";
 import { AiFillDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import CustomModal from "../components/CustomModal";
+import ChangeDateFormat from "../components/ChangeDateFormat";
 
 const columns = [
   {
     title: "SNo",
     dataIndex: "key",
+  },
+  {
+    title: "Date",
+    dataIndex: "date",
   },
   {
     title: "Title",
@@ -70,6 +75,12 @@ const TourList = () => {
   const tour_details = useSelector((state) => state.tour)
 
   const {createdTour,deletedTour,updatedTour} = tour_details
+  const splitTitle = (str, num) => {
+    if (str.length <= num) {
+      return str;
+    }
+    return str.slice(0, num) + " ...";
+  };
 
 
 
@@ -80,11 +91,12 @@ const TourList = () => {
       title: tour_state[i].title,
       description: (
         <p
-          dangerouslySetInnerHTML={{ __html: tour_state[i].description }}
+          dangerouslySetInnerHTML={{ __html: splitTitle(tour_state[i].description ,25) }}
         ></p>
       ),
      
      
+      date: `${ChangeDateFormat(tour_state[i].date)}`,
       price: `${tour_state[i].price}`,
    
       image: tour_state[i].image,
@@ -115,10 +127,21 @@ const TourList = () => {
   return (
     <div>
       <h3 className="mb-4">Tour List</h3>
-      <Table columns={columns} dataSource={data2}></Table>
-      <CustomModal open={open} title="Are you sure you want to delete this product?" onCancel={hideModel} performAction={()=>{
-        deleteTours(tourId)
-      }} />
+      <Table
+        columns={columns}
+        dataSource={data2}
+        scroll={{
+          x: 700,
+        }}
+      ></Table>
+      <CustomModal
+        open={open}
+        title="Are you sure you want to delete this product?"
+        onCancel={hideModel}
+        performAction={() => {
+          deleteTours(tourId);
+        }}
+      />
     </div>
   );
 };

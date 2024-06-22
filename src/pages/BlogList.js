@@ -97,7 +97,9 @@ const BlogList = () => {
     <div>
         <h3 className="mb-4">Blog list</h3>
        <div>
-       <Table columns={columns} dataSource={data2}></Table>
+       <Table columns={columns} dataSource={data2}  scroll={{
+                      x: 700,
+                    }}></Table>
        </div>
        <CustomModal
         titile="Are you sure you want to delete this blog?" open={open} onCancel={hideModal} performAction={()=>{deleteBlogs(blogId)}}

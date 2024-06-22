@@ -114,7 +114,9 @@ const TeamList = () => {
   return (
     <div>
       <h3 className="mb-4">Team List</h3>
-      <Table columns={columns} dataSource={data2}></Table>
+      <Table columns={columns} dataSource={data2}  scroll={{
+                      x: 700,
+                    }}></Table>
       <CustomModal
         open={open}
         onCancel={hideModel}
